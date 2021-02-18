@@ -18,8 +18,11 @@
             </td>
             <td> <?php echo $row['full_description']?></td>
             <td><?php echo $row['date']?></td>
-            <td><a href='" . $new['id'] . "'>Удалить новость</></td>
-            <td><a href='" . $new['del'] . "'>Редактировать новость</a></td>
+             <td><form action="http://localhost/my_project/index.php/news/<?php echo $row['id']?>"method="DELETE">
+                <button type="submit"> Удалить новость </button>
+            </form>
+            </td>
+            <td><a href='http://localhost/my_project/index.php/admin/news/<?php echo $row['id']?>'>Редактировать новость</a></td>
         </tr>
 
     <?php } ?>
@@ -27,11 +30,12 @@
     </tbody>
 </table>
 <p>
-    <a href="<?php echo $add_new_news; ?>">Добавить новость</a>
+    <a href="http://localhost/my_project/index.php/admin/news/create">Добавить новость</a>
 </p>
-<br />
+<br/>
 
 
 </body>
 
 </html>
+
