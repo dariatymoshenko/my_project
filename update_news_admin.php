@@ -5,7 +5,7 @@
 <body>
 
 
-<form action="" method="POST">
+<form action="admin/news" method="PUT">
     <input type="text" name="name" size="50" placeholder="Название новости" value="<?php echo isset($update_news['news_name'])?$update_news['news_name']:'Введите сюда название новости'; ?>" /><br />
     <input type="hidden" name="edit" value="1" /><br />
     <input type="text" name="title" size="50" placeholder="Короткое описание новости" value="<?php echo isset($update_news['short_description'])?$update_news['short_description']:'Введите сюда короткий текст новости'; ?>" /><br />
