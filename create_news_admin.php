@@ -5,7 +5,7 @@
 <body>
 
 
-<form action="" method="POST">
+<form action="/admin/news/create/" method="POST">
     <input type="text" name="name" size="50" placeholder="Название новости" value="<?php echo isset($create_news['news_name'])?$create_news['news_name']:'Введите сюда название новости'; ?>" /><br />
     <input type="hidden" name="edit" value="1" /><br />
     <input type="text" name="title" size="50" placeholder="Короткое описание новости" value="<?php echo isset($create_news['short_description'])?$create_news['short_description']:'Введите сюда короткий текст новости'; ?>" /><br />
