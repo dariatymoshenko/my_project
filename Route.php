@@ -11,10 +11,7 @@ use App\Controllers\Admin\AdminAllNews;
 
 class Route
 {
-    private $id;
-    private $news_name;
-    private $short_description;
-    private $full_description;
+
 
     public static function render()
     {
@@ -42,20 +39,26 @@ class Route
     }*/
 
         switch ($_SERVER['PATH_INFO']) {
-            case'/admin':
+
+           /* case str_replace('/admin/news/', '', $_SERVER['PATH_INFO']) !== '' && $_SERVER['REQUEST_METHOD'] === 'DELETE':
+                die('test');
+
+                //break;*/
+            case'/admin/news':
                 $controller = new AdminAllNews;
 
                 break;
-            /*case str_replace('/admin/create', '', $_SERVER['PATH_INFO']) !== ''&& $_SERVER['REQUEST_METHOD'] === 'GET':
-                $controller = new AdminCreateNews();
 
-                break;*/
-            case str_replace('/admin/news', '', $_SERVER['PATH_INFO']) !== '' && $_SERVER['REQUEST_METHOD'] === 'POST':
-            $controller = new AdminCreatenews(str_replace('/admin/delete', '', $_SERVER['PATH_INFO']));
+            case str_replace('/admin/news/create/', '', $_SERVER['PATH_INFO']) !== '' && $_SERVER['REQUEST_METHOD'] === 'POST':
+            $controller = new AdminCreatenews(str_replace('/admin/news/create', '', $_SERVER['PATH_INFO']));
 
             break;
-            case str_replace('/admin/news/1', '', $_SERVER['PATH_INFO']) !== '' && $_SERVER['REQUEST_METHOD'] === 'DELETE':
-                $controller = new AdminDeletenews(str_replace('/admin/delete/1', '', $_SERVER['PATH_INFO']));
+            case str_replace('/admin/news/', '', $_SERVER['PATH_INFO']) !== '' && $_SERVER['REQUEST_METHOD'] === 'DELETE':
+                $controller = new AdminDeletenews(str_replace('/admin/news/', '', $_SERVER['PATH_INFO']));
+
+                break;
+            case str_replace('/admin/news/', '', $_SERVER['PATH_INFO']) !== '' && $_SERVER['REQUEST_METHOD'] === 'PUT':
+                $controller = new AdminUpdateNews(str_replace('/admin/news/', '', $_SERVER['PATH_INFO']));
 
                 break;
 
@@ -75,18 +78,13 @@ class Route
 
                 break;
 
-            case str_replace('/news/', '', $_SERVER['PATH_INFO']) !== '':
+            /*case str_replace('/news/', '', $_SERVER['PATH_INFO']) !== '':
                 $controller = new OneNews(str_replace('/news/', '', $_SERVER['PATH_INFO']));
-
-                break;
-
-            /*case preg_match('/admin/', '', $_SERVER['PATH_INFO']) !== '' && $_SERVER['REQUEST_METHOD'] === 'GET':
-                $controller = new AdminAllNews;
 
                 break;*/
 
 
-                break;
+
             /*case str_replace('/admin/news/1', '', $_SERVER['PATH_INFO']) !== '' && $_SERVER['REQUEST_METHOD'] === 'DELETE':
                  $controller = new OneNews(str_replace('/news/', '', $_SERVER['PATH_INFO']));
 
